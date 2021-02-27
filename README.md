@@ -9,4 +9,4 @@
 ----
 ### DEMO FOR THIS APPLICATION :- https://interview-meet.web.app/
 
-### Server Repoistry :- https://github.com/teghdeep/im-server
+### Server Repository :- https://github.com/teghdeep/im-server
