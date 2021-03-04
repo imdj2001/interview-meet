@@ -400,7 +400,7 @@ $("#source").focus();
           
           
           <div className=" source__code">
-          <textarea id="source" style={{width:"70vw",height:"70vh",maxHeight:"70vh",minWidth:"70vw",maxWidth:"70vw",resize:"none",background:"black",color:"white",fontFamily:"Montserrat",fontSize:"20px"}}>
+          <textarea id="source" style={{width:"65vw",height:"70vh",maxHeight:"70vh",minWidth:"70vw",maxWidth:"70vw",resize:"none",background:"black",color:"white",fontFamily:"Montserrat",fontSize:"20px"}}>
           
           </textarea>
 
@@ -412,7 +412,7 @@ $("#source").focus();
             Std:input goes here
         </textarea>
      
-        <textarea readOnly id="output" style={{width:"45vw",height:"20vh", background:"black",color:"white",fontFamily:"Montserrat",fontSize:"20px",resize:"none"}}>
+        <textarea readOnly id="output" style={{width:"40vw",height:"20vh", background:"black",color:"white",fontFamily:"Montserrat",fontSize:"20px",resize:"none"}}>
             
         </textarea>
         </div>
