@@ -1,5 +1,4 @@
 import "./Home.css";
-
 import React ,{useEffect} from 'react'
 import logo from "../images/interview-meet-logo-rev.png";
 import { makeStyles } from '@material-ui/core/styles';
@@ -15,15 +14,19 @@ import MenuItem from '@material-ui/core/MenuItem';
 import $, { error } from 'jquery';
 import useEventListener from '@use-it/event-listener'
 import firebase from "../firebase";
-import db from '../firebase';
-
-import ScriptTag from 'react-script-tag';
+import { Navbar, Nav } from 'react-bootstrap';
+import Form from 'react-bootstrap/Form'
+// import Button from 'react-bootstrap/Button'
+import 'bootstrap/dist/css/bootstrap.min.css';
 import  "../../../node_modules/socket.io-client/dist/socket.io.js"
 import io from "socket.io-client"
+import VideoChat from '../VideoChat';
+// import Page from './Page.html';
 
 
 const useStyles = makeStyles((theme) => ({
-    
+
+ 
     formControl: {
       margin: theme.spacing(1),
       minWidth: 120,
@@ -67,7 +70,7 @@ const Home=() => {
     const handleChange = (event) => {
       setLang(event.target.value);
     };
-
+    // var htmlDoc = {__html: Page};
     const Random = () =>{
       var RandomNumber = Math.floor(Math.random() * 4) + 1 ;
       return RandomNumber
@@ -138,6 +141,12 @@ socket.on('message', (data) => {
 
 };
 
+// const video = () =>
+// {
+//   callFrame = window.DailyIframe.createFrame();
+//   callFrame.join({ url: 'https://interview-meet.daily.co/y8EXJdalK3vlxs3TIDB8'})
+// };
+// video();
 
 clientsocketConnection();
 fetchdata();
@@ -310,7 +319,7 @@ $("#source").focus();
     return (
         <>
         <div className="root">
-        <AppBar position="static" style={{background:"black" , display:"flex"}}>
+         <AppBar position="static" style={{background:"black" , display:"flex"}}>
           <Toolbar>
            <img edge="start" src={logo} className="navbar__logo"></img>
            <FormControl className={classes.formControl}>
@@ -344,6 +353,36 @@ $("#source").focus();
           </Toolbar>
           
         </AppBar>
+       
+
+       {/* NAVBAR RESPONSIVE */}
+       {/* <Navbar bg="dark" expand="lg">
+ 
+  <img src={logo} className="navbar__logo"></img>
+  
+  
+  <Navbar.Toggle aria-controls="basic-navbar-nav" />
+  <Navbar.Collapse id="basic-navbar-nav">
+    <Nav className="mr-auto">
+    <select
+  value={lang}
+  onChange={handleChange}
+   className="selectpicker select__lang" data-width="75%">
+      <option value={"C"}>C</option>
+      <option value={"C++"}>C++</option>
+      <option value={"Python"}>Python</option>
+    </select>
+      <Nav.Link>DRAWING BOARD</Nav.Link>
+    <Button onClick={downloadTxtFile} variant="success">Download Source Code</Button>
+    <Button id="run" onClick={run} variant="success">RUN</Button>
+    </Nav>
+  </Navbar.Collapse>
+</Navbar> */}
+
+
+
+
+
       </div>
         <div className="container__compiler">
           
@@ -356,10 +395,12 @@ $("#source").focus();
           <p>Input1 : {question.input}</p>
           <p>Output : {question.output}</p>
           <p>Explanation : {question.explanation}</p>
+          
           </div>
           
-          <div className="source__code">
-          <textarea id="source" style={{width:"85vw",height:"70vh",maxHeight:"70vh",minWidth:"70vw",maxWidth:"85vw",resize:"none",background:"black",color:"white",fontFamily:"Montserrat",fontSize:"20px"}}>
+          
+          <div className=" source__code">
+          <textarea id="source" style={{width:"70vw",height:"70vh",maxHeight:"70vh",minWidth:"70vw",maxWidth:"70vw",resize:"none",background:"black",color:"white",fontFamily:"Montserrat",fontSize:"20px"}}>
           
           </textarea>
 
@@ -371,13 +412,19 @@ $("#source").focus();
             Std:input goes here
         </textarea>
      
-        <textarea readOnly id="output" style={{width:"60vw",height:"20vh", background:"black",color:"white",fontFamily:"Montserrat",fontSize:"20px",resize:"none"}}>
+        <textarea readOnly id="output" style={{width:"45vw",height:"20vh", background:"black",color:"white",fontFamily:"Montserrat",fontSize:"20px",resize:"none"}}>
             
         </textarea>
         </div>
         </div>
+        <div>
+          <VideoChat
+          url='https://interview-meet.daily.co/y8EXJdalK3vlxs3TIDB8'
+        ></VideoChat>
+          </div>
         </div>
-
+        
+        
         <>
 
         {/* <ScriptTag type="text/javascript" src="../../../node_modules/socket.io-client/dist/socket.io.js"/> */}

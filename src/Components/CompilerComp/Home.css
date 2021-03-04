@@ -24,3 +24,12 @@
   margin-top: 5px;
   object-fit: contain;
 }
+.select__lang
+{
+  margin-left: 10px;
+  margin-right: 10px;
+  background: white;
+  border-radius: 1px;
+
+  
+}
