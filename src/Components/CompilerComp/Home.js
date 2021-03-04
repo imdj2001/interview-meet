@@ -16,12 +16,11 @@ import useEventListener from '@use-it/event-listener'
 import firebase from "../firebase";
 import { Navbar, Nav } from 'react-bootstrap';
 import Form from 'react-bootstrap/Form'
-// import Button from 'react-bootstrap/Button'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import  "../../../node_modules/socket.io-client/dist/socket.io.js"
 import io from "socket.io-client"
 import VideoChat from '../VideoChat';
-// import Page from './Page.html';
+
 
 
 const useStyles = makeStyles((theme) => ({
@@ -75,26 +74,6 @@ const Home=() => {
       var RandomNumber = Math.floor(Math.random() * 4) + 1 ;
       return RandomNumber
     }
-  //   const fetchQuestion=async()=>{
-        
-  //       // var RandomNumber = Math.floor(Math.random() * 4) + 1 ;
-  //       // var sizeofdata= snapshot.numChildren();
-  //       setQuestion = 
-  // db.collection('questions')
-  // .doc('1');
-        
-  //     }
-  //     useEffect(() => {
-  //       fetchQuestion();
-  //     }, [])
-  //   var data="";
-//   db.ref('questions').once('value').then(function(snapshot)
-//   {
-//       const exist= (snapshot.val() !=null);
-
-//       if(exist) data= snapshot.val();
-//       console.log('Single Value ', data);
-//   }).catch(error=> console.log(error));
 var data
 useEffect(() => {
 
@@ -141,25 +120,9 @@ socket.on('message', (data) => {
 
 };
 
-// const video = () =>
-// {
-//   callFrame = window.DailyIframe.createFrame();
-//   callFrame.join({ url: 'https://interview-meet.daily.co/y8EXJdalK3vlxs3TIDB8'})
-// };
-// video();
-
 clientsocketConnection();
 fetchdata();
 },Random());
-
-
-// const Demo = props => (
-//   <div>
-//   <ScriptTag type="text/javascript" src="../../client.js" />
-  
-//   <ScriptTag type="text/javascript" src="./node_modules/socket.io-client/dist/socket.io.js"/>
-//   </div>
-//   )
 
 
 const fetchdatapickaone = async () => {
@@ -269,11 +232,6 @@ function run() {
     });
 }
 
-// $("body").keydown(function (e) {
-//     if (e.ctrlKey && e.keyCode == 13) {
-//         run();
-//     }
-// });
 
 const ESCAPE_KEYS = ['27', 'Escape'];
 
@@ -340,17 +298,17 @@ $("#source").focus();
           <MenuItem value={"C++"}>C++</MenuItem>
           <MenuItem value={"Python"}>Python</MenuItem>
         </Select>
-      </FormControl>
-      <Typography variant="h6" className={classes.title}>
-         Drawing Board
-      </Typography>
-      <Button onClick={downloadTxtFile} className={classes.btn1}>Download Source Code</Button>
-      <Button id="run" onClick={run} className={classes.btn}>RUN</Button>
-      <Button  onClick={fetchdatapickaone} className={classes.btn2}>Pick a One</Button>
-      <Typography variant="h6" style={{fontSize:"13px", flexGrow:1, float:"right"}}>
-        Developed by-: DJ, DS, TK
-      </Typography>
-          </Toolbar>
+        </FormControl>
+              <Typography variant="h6" className={classes.title}>
+                Drawing Board
+              </Typography>
+              <Button onClick={downloadTxtFile} className={classes.btn1}>Download Source Code</Button>
+              <Button id="run" onClick={run} className={classes.btn}>RUN</Button>
+              <Button  onClick={fetchdatapickaone} className={classes.btn2}>Pick a One</Button>
+              <Typography variant="h6" style={{fontSize:"13px", flexGrow:1, float:"right"}}>
+                Developed by-: DJ, DS, TK
+              </Typography>
+        </Toolbar>
           
         </AppBar>
        
@@ -400,39 +358,28 @@ $("#source").focus();
           
           
           <div className=" source__code">
-          <textarea id="source" style={{width:"65vw",height:"70vh",maxHeight:"70vh",minWidth:"70vw",maxWidth:"70vw",resize:"none",background:"black",color:"white",fontFamily:"Montserrat",fontSize:"20px"}}>
+          <textarea id="source" style={{width:"65vw",height:"70vh",maxHeight:"70vh",minWidth:"65vw",maxWidth:"65vw",resize:"none",background:"black",color:"white",fontFamily:"Montserrat",fontSize:"20px"}}>
           
           </textarea>
 
 
-        
-        
-        <div className="horizontal__flex">
-        <textarea id ="input" style={{width:"25vw",height:"20vh",minWidth:"25vw" ,background:"black",color:"white",fontFamily:"Montserrat",fontSize:"20px",resize:"horizontal"}}>
-            Std:input goes here
-        </textarea>
-     
-        <textarea readOnly id="output" style={{width:"40vw",height:"20vh", background:"black",color:"white",fontFamily:"Montserrat",fontSize:"20px",resize:"none"}}>
-            
-        </textarea>
-        </div>
-        </div>
-        <div>
-          <VideoChat
-          url='https://interview-meet.daily.co/y8EXJdalK3vlxs3TIDB8'
-        ></VideoChat>
+          <div className="horizontal__flex">
+          <textarea id ="input" style={{width:"25vw",height:"20vh",minWidth:"25vw" ,background:"black",color:"white",fontFamily:"Montserrat",fontSize:"20px",resize:"horizontal"}}>
+              Std:input goes here
+          </textarea>
+      
+          <textarea readOnly id="output" style={{width:"40vw",height:"20vh", background:"black",color:"white",fontFamily:"Montserrat",fontSize:"20px",resize:"none"}}>
+              
+          </textarea>
           </div>
-        </div>
-        
-        
-        <>
-
-        {/* <ScriptTag type="text/javascript" src="../../../node_modules/socket.io-client/dist/socket.io.js"/> */}
-    
-  
-  
-      </>
-
+          </div>
+          {/* VIDEO-CHAT FUNCTION CALLED */}
+          <div>
+            <VideoChat
+            url='https://interview-meet.daily.co/y8EXJdalK3vlxs3TIDB8'
+          ></VideoChat>
+            </div>
+          </div>
         </>
         
     );
