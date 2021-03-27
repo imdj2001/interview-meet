@@ -370,7 +370,7 @@ $("#source").focus();
 
 
           <div className="horizontal__flex">
-          <textarea id ="input" style={{width:"20vw",height:"21vh",minWidth:"20vw" ,background:"black",color:"white",fontFamily:"Montserrat",fontSize:"20px",resize:"horizontal"}}>
+          <textarea id ="input" style={{width:"20vw",height:"21vh",minWidth:"20vw" ,background:"black",color:"white",fontFamily:"Montserrat",fontSize:"20px",resize:"none"}}>
               Std:input goes here
           </textarea>
       
