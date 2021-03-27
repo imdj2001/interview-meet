@@ -23,7 +23,7 @@ function App() {
         <Home />
       </Route>
 
-      <Route path="/add">
+      <Route path="/adddj">
         <MultilineTextFields />
       </Route>
       
