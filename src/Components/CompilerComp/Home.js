@@ -66,6 +66,7 @@ const Home=() => {
     const [lang, setLang] = React.useState('');
     const [open, setOpen] = React.useState(false);
     const [question,setQuestion] = React.useState([]);
+    const [activevideo,setActivevideo] = React.useState('yes');
     const handleChange = (event) => {
       setLang(event.target.value);
     };
@@ -75,6 +76,10 @@ const Home=() => {
       return RandomNumber
     }
 var data
+function VideoStart()
+    {
+      setActivevideo("no");
+    }
 useEffect(() => {
 
 
@@ -84,6 +89,7 @@ useEffect(() => {
   const fetchdata = async () => {
     
     
+
     
     await firebase.db
       .collection("questions")
@@ -344,7 +350,7 @@ $("#source").focus();
       </div>
         <div className="container__compiler">
           
-          <div style={{width:"15vw",height:"91vh", maxHeight:"91vh",minWidth:"10vw", background:"black",color:"white",fontFamily:"Montserrat",fontSize:"20px"}}>
+          <div style={{width:"20vw",height:"91vh", maxHeight:"91vh",minWidth:"10vw", background:"black",color:"white",fontFamily:"Montserrat",fontSize:"20px"}}>
            <h3>{question.title}</h3> 
           <p style={{color:"green"}}>{question.level}</p>
           
@@ -358,27 +364,30 @@ $("#source").focus();
           
           
           <div className=" source__code">
-          <textarea id="source" style={{width:"65vw",height:"70vh",maxHeight:"70vh",minWidth:"65vw",maxWidth:"65vw",resize:"none",background:"black",color:"white",fontFamily:"Montserrat",fontSize:"20px"}}>
+          <textarea id="source" style={{width:"60vw",height:"70vh",maxHeight:"70vh",minWidth:"60vw",maxWidth:"65vw",resize:"none",background:"black",color:"white",fontFamily:"Montserrat",fontSize:"20px"}}>
           
           </textarea>
 
 
           <div className="horizontal__flex">
-          <textarea id ="input" style={{width:"25vw",height:"20vh",minWidth:"25vw" ,background:"black",color:"white",fontFamily:"Montserrat",fontSize:"20px",resize:"horizontal"}}>
+          <textarea id ="input" style={{width:"20vw",height:"21vh",minWidth:"20vw" ,background:"black",color:"white",fontFamily:"Montserrat",fontSize:"20px",resize:"horizontal"}}>
               Std:input goes here
           </textarea>
       
-          <textarea readOnly id="output" style={{width:"40vw",height:"20vh", background:"black",color:"white",fontFamily:"Montserrat",fontSize:"20px",resize:"none"}}>
+          <textarea readOnly id="output" style={{width:"40vw",height:"21vh", background:"black",color:"white",fontFamily:"Montserrat",fontSize:"20px",resize:"none"}}>
               
           </textarea>
           </div>
           </div>
           {/* VIDEO-CHAT FUNCTION CALLED */}
-          <div>
+        { activevideo === "yes" ? <div className="d-flex justify-content-center" style={{height:"91vh",minWidth:"20vw", background:"black", alignItems:"center"}}> 
+         <Button style={{ maxHeight:"40px",background:"green",color:"white",fontFamily:"Montserrat",marginBottom:"300px", borderRadius:"5px"}} onClick={()=>{setActivevideo("no");}}>Start Video-Call</Button> 
+        </div> : <div>  
             <VideoChat
             url='https://interview-meet.daily.co/y8EXJdalK3vlxs3TIDB8'
           ></VideoChat>
-            </div>
+            </div>}
+          
           </div>
         </>
         
