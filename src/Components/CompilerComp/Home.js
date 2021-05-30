@@ -311,9 +311,9 @@ $("#source").focus();
               <Button onClick={downloadTxtFile} className={classes.btn1}>Download Source Code</Button>
               <Button id="run" onClick={run} className={classes.btn}>RUN</Button>
               <Button  onClick={fetchdatapickaone} className={classes.btn2}>Pick a One</Button>
-              <Typography variant="h6" style={{fontSize:"13px", flexGrow:1, float:"right"}}>
+              {/* <Typography variant="h6" style={{fontSize:"13px", flexGrow:1, float:"right"}}>
                 Developed by-: DJ, DS, TK
-              </Typography>
+              </Typography> */}
         </Toolbar>
           
         </AppBar>
